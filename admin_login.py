@@ -5,6 +5,12 @@ import tkinter as tk
 root=CTk()
 root.geometry("1500x750")
 root.title("Admin_Login")
+root.iconbitmap("pictures//32432hotbeverage_98916.ico")
+
+def back():
+    root.destroy()
+    import dashboard
+
 
 
 
@@ -66,6 +72,7 @@ def new():
     win2.geometry("1252x626")
     win2.resizable(0,0)
     win2.title("Forgot password")
+    win2.iconbitmap("pictures//32432hotbeverage_98916.ico")
     #the pic in the top label window
     image1=Image.open("pictures\\forgot-pass-pic.jpg")
     image1_resize=image1.resize((626,626))
@@ -130,6 +137,9 @@ e=ImageTk.PhotoImage(d)
 a = Image.open("pictures\\coffee.jpg")
 f=ImageTk.PhotoImage(a)
 
+h=Image.open("pictures//Vectorarrow.png")
+htk=ImageTk.PhotoImage(h)
+
 
 #canvas widget which covers the entire screen
 canvas=tk.Canvas(root,bg="black",bd=0,highlightthicknes=0)
@@ -154,8 +164,8 @@ f2=tk.Frame(f1,bg="#F8F9F7")
 f2.place(relwidth=1,relheight=0.018,relx=0,rely=0.2)
 
 #login heading
-l1=tk.Label(f1,text="LOGIN",bg="#888888",font=("Inter",25,"bold"))
-l1.place(relx=0.4,rely=0.25,relwidth=0.2,relheight=0.05)
+l1=tk.Label(f1,text="Admin Login",bg="#888888",font=("Inter",25,"bold"))
+l1.place(relx=0.26,rely=0.25,relwidth=0.5,relheight=0.1)
 
 l2=tk.Label(f1,text="Email:",bg="#888888",font=("Regular",20))
 l2.place(relx=0.08,rely=0.34)
@@ -201,6 +211,9 @@ b3.place(relx=0.56,rely=0.896)
 # eye button
 b4=tk.Button(f1,image=e,bg="#FAF3DB",activebackground="#FAF3DB",border=0,command=onclick)
 b4.place(relx=0.8,rely=0.595)
+
+b5=tk.Button(f1,image=htk,text=" Back",compound=LEFT,bg="#888888",activebackground="#888888",bd=0,font=("Inter",13),fg="White",activeforeground="White",command=back)
+b5.place(relx=0.048,rely=0.903)
 
 
 root.mainloop()

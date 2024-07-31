@@ -6,6 +6,14 @@ import tkinter as tk
 root=CTk()
 root.geometry("1500x750")
 root.title("user_signup")
+root.iconbitmap("pictures//32432hotbeverage_98916.ico")
+
+
+def back():
+    root.destroy()
+    import dashboard
+
+
 
 
 def already_acc():
@@ -38,9 +46,12 @@ def security_info():
     '''
     this function is made to show a message when user clicks submit on win1 window
     '''
+
     win2.destroy()         
     tk.messagebox.showinfo("Successful Message ","Security questions Entry Successful !")
+
     pass
+
 
 
 
@@ -55,6 +66,7 @@ def newwin():
     win2.geometry("1252x626")
     win2.resizable(0,0)
     win2.title("Forgot password")
+    win2.iconbitmap("pictures//32432hotbeverage_98916.ico")
     #the pic in the top label window
     image=Image.open("pictures\\forgot-pass-pic.jpg")
     image_resize=image.resize((626,626))
@@ -105,6 +117,8 @@ def newwin():
     button1.place(relx=0.3,rely=0.8)
     pass
 
+def message():
+    tk.messagebox.showinfo("Security question message","Security question must be answered. In case if you forgot your password, then this will help you reset your password .")
 
 
 
@@ -138,6 +152,9 @@ photoimage4=ImageTk.PhotoImage(image4)
 label4 = tk.Label(root, image=photoimage4,bg="#262731")
 label4.place(x=138, y=62, w=641, h=141)
 
+h=Image.open("pictures//Vectorarrow.png")
+htk=ImageTk.PhotoImage(h)
+
 
 
 
@@ -150,8 +167,8 @@ sep_frame=tk.Frame(f1,bg="Black")
 sep_frame.place(relwidth=1,relheight=0.02,rely=0.2)
 
 #signup heading label
-l1=tk.Label(f1,text="Sign Up",font=("Inter",25,"bold"),bg="#262731",fg="white")
-l1.place(relx=0.38,rely=0.23)
+l1=tk.Label(f1,text="User SignUp",font=("Inter",25,"bold"),bg="#262731",fg="white")
+l1.place(relx=0.32,rely=0.23)
 
 #firstname label
 l2=tk.Label(f1,text="First Name:",font=("Regular",15),bg="#262731",fg="White")
@@ -163,7 +180,7 @@ e1.place(relx=0.05,rely=0.33)
 
 #lastname label
 l3=tk.Label(f1,text="Last Name:",font=("Regular",15),bg="#262731",fg="White")
-l3.place(relx=0.53,rely=0.3)
+l3.place(relx=0.53,rely=0.29)
 
 #lastname entry
 e2=CTkEntry(f1,placeholder_text="lastname",fg_color="#FAF3DB",width=190,height=50,font=("Regular",15),text_color="#DD2323",placeholder_text_color="#DD2323",corner_radius=8,border_width=0)
@@ -210,7 +227,7 @@ b4=tk.Button(f1,image=tkimage2,bd=0,bg="#FAF3DB",activebackground="#FAF3DB",comm
 b4.place(relx=0.8,rely=0.74)
 
 #i button in security question
-b4=tk.Button(f1,image=tkimage3,bg="#FAF3DB",activebackground="#FAF3DB",bd=0)
+b4=tk.Button(f1,image=tkimage3,bg="#FAF3DB",activebackground="#FAF3DB",bd=0,command=message)
 b4.place(relx=0.68,rely=0.825)
 
 #already an account label
@@ -220,5 +237,9 @@ l7.place(relx=0.48,rely=0.87)
 # click here button 
 b5=tk.Button(f1,text="click here",font=("Inter",12,"bold italic"),bg="#262731",fg="#DD2323",activebackground="#262731",bd=0,command=already_acc)
 b5.place(relx=0.76,rely=0.869)
+
+b5=tk.Button(f1,image=htk,text=" Back",compound=LEFT,bg="#262731",activebackground="#262731",bd=0,font=("Inter",13),fg="White",activeforeground="White",command=back)
+b5.place(relx=0.048,rely=0.94)
+
 
 root.mainloop()

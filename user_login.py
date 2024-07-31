@@ -5,6 +5,17 @@ import tkinter as tk
 root=CTk()
 root.geometry("1500x750")
 root.title("Login")
+root.iconbitmap("pictures//32432hotbeverage_98916.ico")
+
+
+def reset_successful():
+    win2.destroy()
+    tk.messagebox.showinfo("Reset Successful","Password reset successful.")
+
+def back():
+    root.destroy()
+    import dashboard
+
 
 
 
@@ -34,14 +45,22 @@ def onclick():
         e2.configure(show="*")
     else:
         e2.configure(show="")
+    
+def reset_p1():
+    if etr1.cget("show") == "":
+        etr1.configure(show="*")
+    else:
+        etr1.configure(show="")
 
-def security_update():
-    '''
-    this function is made to show a message when user clicks submit on win1 window
-    '''
-    win2.destroy()         
-    tk.messagebox.showinfo("Successful Message ","Security questions Entry Successful !")
-    pass
+def reset_p2():
+    if etr2.cget("show") == "":
+        etr2.configure(show="*")
+    else:
+        etr2.configure(show="")
+        
+
+
+
 
 def login():
     """
@@ -50,8 +69,7 @@ def login():
     """
     tk.messagebox.showinfo("Successful Message ","Login Successful !")
     root.destroy()   
-    pass      
-    
+    pass   
 
 
 
@@ -111,9 +129,43 @@ def new():
     entry3.place(relx=0.17,rely=0.61)
 
 #the submit button
-    button1=CTkButton(frame2,text="SUBMIT",fg_color="#003554",text_color="White",font=("Inter",18,"bold"),command=security_update)
+    button1=CTkButton(frame2,text="SUBMIT",fg_color="#003554",text_color="White",font=("Inter",18,"bold"),command=reset_pass)
     button1.place(relx=0.3,rely=0.8)
     pass
+
+
+
+eye_img=Image.open("pictures//Vectorblack_eye1.png")
+eye_imgtk=ImageTk.PhotoImage(eye_img)
+
+
+def reset_pass():
+    global etr1
+    global etr2
+
+    win3=tk.Toplevel()
+    win3.title("Reset password")
+    win3.geometry("500x250")
+    win3.resizable(0,0)
+
+    lbl1=tk.Label(win3,text="Enter New Password:",font=("Regular",13))
+    lbl1.place(relx=0.05,rely=0.08)
+    etr1=CTkEntry(win3,font=("Regular",12),corner_radius=0,fg_color="White",border_color="Black",show="*",text_color="Black")
+    etr1.place(relx=0.055,rely=0.17,relwidth=0.8,relheight=0.13)
+
+    lbl2=tk.Label(win3,text="Confirm new Password:",font=("Regular",13))
+    lbl2.place(relx=0.05,rely=0.33)
+    etr2=CTkEntry(win3,font=("Regular",12),corner_radius=0,fg_color="White",border_color="Black",show="*",text_color="Black")
+    etr2.place(relx=0.055,rely=0.43,relwidth=0.8,relheight=0.13)
+
+    btn1=CTkButton(win3,text="SUBMIT",font=("Inter",15,"bold"),corner_radius=0,fg_color="White",border_color="Black",text_color="Black",border_width=2,command=reset_successful)
+    btn1.place(relx=0.33,rely=0.75,relwidth=0.3,relheight=0.15)
+
+    btn2=tk.Button(win3,image=eye_imgtk,bg="white",activebackground="white",bd=0,command=reset_p1)
+    btn2.place(relx=0.78,rely=0.2)
+
+    btn3=tk.Button(win3,image=eye_imgtk,bg="white",activebackground="white",bd=0,command=reset_p2)
+    btn3.place(relx=0.78,rely=0.46)
 
 
     
@@ -126,9 +178,15 @@ e=ImageTk.PhotoImage(d)
 
 
 
+
+
 #bg image
 a = Image.open("pictures\\coffee.jpg")
 f=ImageTk.PhotoImage(a)
+
+
+h=Image.open("pictures//Vectorarrow.png")
+htk=ImageTk.PhotoImage(h)
 
 
 #canvas widget which covers the entire screen
@@ -154,8 +212,8 @@ f2=tk.Frame(f1,bg="#F8F9F7")
 f2.place(relwidth=1,relheight=0.018,relx=0,rely=0.2)
 
 #login heading
-l1=tk.Label(f1,text="LOGIN",bg="#888888",font=("Inter",25,"bold"))
-l1.place(relx=0.4,rely=0.25,relwidth=0.2,relheight=0.05)
+l1=tk.Label(f1,text="User Login",bg="#888888",font=("Inter",25,"bold"))
+l1.place(relx=0.26,rely=0.25,relwidth=0.5,relheight=0.07)
 
 l2=tk.Label(f1,text="Email:",bg="#888888",font=("Regular",20))
 l2.place(relx=0.08,rely=0.34)
@@ -201,6 +259,9 @@ b3.place(relx=0.56,rely=0.896)
 # eye button
 b4=tk.Button(f1,image=e,bg="#FAF3DB",activebackground="#FAF3DB",border=0,command=onclick)
 b4.place(relx=0.8,rely=0.595)
+
+b5=tk.Button(f1,image=htk,text=" Back",compound=LEFT,bg="#888888",activebackground="#888888",bd=0,font=("Inter",13),fg="White",activeforeground="White",command=back)
+b5.place(relx=0.048,rely=0.903)
 
 
 root.mainloop()

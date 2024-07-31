@@ -6,6 +6,10 @@ root=CTk()
 # root.geometry("1500x750")
 root.minsize(width=1550,height=750)
 root.title("Dashboard")
+root.iconbitmap("pictures//32432hotbeverage_98916.ico")
+
+main_frame1=tk.Frame(root)
+main_frame1.place(relheight=1,relwidth=1,x=0,y=0)
 
 def i_button1():
     tk.messagebox.showinfo("User Login","Click here for Signing in to User Account .")
@@ -25,10 +29,12 @@ def mealmate():
 def user_login():
     root.destroy()
     import user_login
+    
 
 
 def admin_login():
     root.destroy()
+
     import admin_login
 
 
@@ -44,15 +50,10 @@ def admin_signup():
 
 
 
-
-
-
-
-
-image1=Image.open("pictures\\dashboard_bg.png")#insert image
-image1=image1.resize((1920,990))#resize
-photoimage1=ImageTk.PhotoImage(image1)#pil to photo image
-label1 = tk.Label(root, image=photoimage1)#label
+image1=Image.open("pictures\\dashboard_bg.png")
+image1=image1.resize((1920,990))
+photoimage1=ImageTk.PhotoImage(image1)
+label1 = tk.Label(main_frame1, image=photoimage1)
 label1.place(x=0, y=0, w=1920, h=990)
 label1=image1 
 
@@ -60,9 +61,7 @@ i_image=ImageTk.PhotoImage(file="pictures/Vectori_button(white).png")
 
 
 
-
-
-f=CTkFrame(root,width=450,height=600,border_width=3,fg_color="White",border_color="BLack")
+f=CTkFrame(main_frame1,width=450,height=600,border_width=3,fg_color="White",border_color="BLack")
 f.place(relx=0.35,rely=0.16)
 
 image2=Image.open("pictures\\Rectangle 41.png")#insert image
@@ -96,14 +95,9 @@ ib3.place(relx=0.89,rely=0.35)
 
 b4=CTkButton(f2,text="Admin Signup",width=240,height=55,corner_radius=30,font=("Inter",33),text_color="#48A31E",fg_color="#3A3848",hover=0,command=admin_signup)
 b4.place(relx=0.204,rely=0.74)
+
 ib4=tk.Button(b4,image=i_image,bg="#3A3848",bd=0,activebackground="#3A3848",command=i_button4)
 ib4.place(relx=0.9,rely=0.35)
-
-
-
-
-
-
 
 
 root.mainloop()

@@ -6,6 +6,12 @@ import tkinter as tk
 root=CTk()
 root.geometry("1500x750")
 root.title("user_signup")
+root.iconbitmap("pictures//32432hotbeverage_98916.ico")
+
+def back():
+    root.destroy()
+    import dashboard
+
 
 
 def already_acc():
@@ -64,7 +70,6 @@ def newwin():
     label1st.image = image_tk  #reference to the picture
     label1st.place(relheight=1,relwidth=1,relx=0.2499)
 
-
 #the main frame of win1 
     frame1=tk.Frame(win2,bg="#001129",width=626,height=626)
     frame1.place(x=0,y=0)
@@ -114,6 +119,9 @@ def newwin():
 frame=tk.Frame(root,bg="Black")
 frame.place(relwidth=1,relheight=1)
 
+h=Image.open("pictures//Vectorarrow.png")
+htk=ImageTk.PhotoImage(h)
+
 #the main bg picture 
 image1=Image.open("pictures\\f327a69f-4c36-4c1e-8965-c5a71e3d9d99.png")
 image1=image1.resize((968,1080))
@@ -141,7 +149,6 @@ label4.place(x=138, y=62, w=641, h=141)
 
 
 
-
 #the main frame
 f1=CTkFrame(frame,bg_color="transparent",corner_radius=10,fg_color="#262731",width=681,height=900)
 f1.place(x=100,y=39,w=681,h=900)
@@ -151,8 +158,8 @@ sep_frame=tk.Frame(f1,bg="Black")
 sep_frame.place(relwidth=1,relheight=0.02,rely=0.2)
 
 #signup heading label
-l1=tk.Label(f1,text="Sign Up",font=("Inter",25,"bold"),bg="#262731",fg="white")
-l1.place(relx=0.38,rely=0.23)
+l1=tk.Label(f1,text="Admin Sign Up",font=("Inter",25,"bold"),bg="#262731",fg="white")
+l1.place(relx=0.32,rely=0.23)
 
 #firstname label
 l2=tk.Label(f1,text="First Name:",font=("Regular",15),bg="#262731",fg="White")
@@ -221,5 +228,9 @@ l7.place(relx=0.48,rely=0.87)
 # click here button 
 b5=tk.Button(f1,text="click here",font=("Inter",12,"bold italic"),bg="#262731",fg="#DD2323",activebackground="#262731",bd=0,command=already_acc)
 b5.place(relx=0.76,rely=0.869)
+
+#back bytton
+b5=tk.Button(f1,image=htk,text=" Back",compound=LEFT,bg="#262731",activebackground="#262731",bd=0,font=("Inter",13),fg="White",activeforeground="White",command=back)
+b5.place(relx=0.048,rely=0.94)
 
 root.mainloop()

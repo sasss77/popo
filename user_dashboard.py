@@ -48,6 +48,14 @@ def drinks():
     u_db_button12.grid(row=2,column=0,padx=10,pady=10)
 
 
+    def search_check():
+        searched_item_value=u_db_entry.get()
+        searched_item_value.lower()
+
+        for i in items_lst: 
+            i.lower()
+        if searched_item_value in items_lst:
+            pass
 
 
 
@@ -172,6 +180,8 @@ def customize():
 u_db_mainframe=CTkFrame(root,fg_color="black")
 u_db_mainframe.place(relwidth=1,relheight=1,x=0,y=0)
 
+items_lst=["Chicken Burger","Espresso","Chicken Pizza","Pepsi","Drumstick","Cold Coffee","French Fries", "CocaCola","Oreo Shake","Cappuccino","Chicken MoMo","Sprite","Fanta","Chicken Chowmein","Chicken Biryani"]
+
 #the top frame 
 u_db_frame1=tk.Frame(u_db_mainframe,bg="#ACACAC")
 u_db_frame1.place(relwidth=1,relheight=0.12,relx=0,rely=0)
@@ -199,8 +209,8 @@ u_db_btn1=CTkButton(u_db_frame1,text="       Search",text_color="red",fg_color="
 u_db_btn1.place(relwidth=0.07,relheight=0.45,relx=0.74,rely=0.3)
 
 #Item name entrybox
-u_db_frame2=CTkEntry(u_db_frame1,corner_radius=0,fg_color="white",border_width=1,border_color="black",text_color="black",placeholder_text="Item Name",placeholder_text_color="black")
-u_db_frame2.place(relwidth=0.38,relheight=0.45,relx=0.37,rely=0.3)
+u_db_entry=CTkEntry(u_db_frame1,corner_radius=0,fg_color="white",border_width=1,border_color="black",text_color="black",placeholder_text="Item Name",placeholder_text_color="black")
+u_db_entry.place(relwidth=0.38,relheight=0.45,relx=0.37,rely=0.3)
 # details_menu main frame
 u_db_frame=CTkFrame(u_db_mainframe,corner_radius=7,fg_color="black")
 u_db_frame.place(relwidth=0.45,relheight=0.85,relx=0.5,rely=0.15)

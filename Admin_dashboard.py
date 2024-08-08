@@ -12,7 +12,6 @@ root.title("Admin_Dashboard")
 main_frame6=CTkFrame(root,fg_color="Black")
 main_frame6.place(relheight=1,relwidth=1,relx=0,rely=0)
 
-global photo_a_db_logo, a_db_img1ctk, a_db_img5ctk, a_db_img2ctk, a_db_img6ctk, a_db_img3ctk, a_db_img7ctk, a_db_img4ctk, a_db_img8ctk, a_db_img9tk, photo_a_db_bg
 
 def on_hover(enter):
     #to change the text colour and image of button on entering the widget
@@ -53,6 +52,18 @@ def off_hover4(leave):
 
 
 def dashboard_frame_ad():
+    global s_f_frame,admin_db_frame3,admin_db_customer_frame
+    #dashboard frame
+    admin_db_frame3=tk.Frame(main_frame6,bg="White")
+    
+    #items frame
+    s_f_frame=tk.Frame(main_frame6)
+
+    #Customers frame
+    admin_db_customer_frame=tk.Frame(main_frame6,bg="Black")
+
+    s_f_frame.place_forget()
+    admin_db_customer_frame.place_forget()
 
     global admin_db_btn3,admin_db_btn3_lbl,admin_db_btn2,admin_db_btn4,admin_db_btn2_dash
     a_db_btn9.configure(text="             Dashboard")
@@ -80,8 +91,7 @@ def dashboard_frame_ad():
 
 
 
-    #Frame
-    admin_db_frame3=tk.Frame(main_frame6,bg="White")
+    #Dashboard Frame
     admin_db_frame3.place(relx=0.302,rely=0.12,relwidth=0.7,relheight=0.9)
 
     
@@ -106,14 +116,17 @@ def dashboard_frame_ad():
 
 
 def items_frame_ad():
+    global photo_u_db_img3tk,photo_u_db_img4tk,photo_u_db_img5tk,photo_u_db_img6tk,photo_u_db_img7tk,photo_u_db_img8tk,photo_u_db_img9tk,photo_u_db_img10tk,photo_u_db_img11tk,photo_u_db_img12tk,photo_u_db_img13tk,photo_u_db_img14tk,photo_u_db_img15tk,photo_u_db_img16tk,photo_u_db_img17tk
     #this function is made to make frame in dashboard swap with the frame in items page and make other buttons hover as usual
-
     #to configure dashboard label to item label
     a_db_btn9.configure(text="    Items")
     
     #making the buttons global 
     global admin_db_btn3,admin_db_btn3_lbl,admin_db_btn2,admin_db_btn4
+    admin_db_frame3.place_forget()
     admin_db_btn3.place_forget()
+    admin_db_customer_frame.place_forget()
+
     
     #Items button
     admin_db_btn3_items=CTkButton(admin_db_frame2,fg_color="#F38686",text="Items",text_color="#33303C",corner_radius=7,hover=0)
@@ -137,16 +150,254 @@ def items_frame_ad():
     admin_db_btn4.bind("<Leave>", off_hover3)
 
     #Frame
-    admin_db_iframe3=tk.Frame(main_frame6,bg="White")
-    admin_db_iframe3.place(relx=0.302,rely=0.12,relwidth=0.7,relheight=0.9)
+    #Scrollable frame that contains all items
+
+    s_f_frame.place(relwidth=0.6,relheight=0.85,relx=0.32,rely=0.13)
+    u_db_sframe=CTkScrollableFrame(s_f_frame,corner_radius=0,fg_color="Black",scrollbar_button_color="white",scrollbar_button_hover_color="#D9D9D9")
+    u_db_sframe.place(relwidth=1,relheight=1)
+
+#button 1 in scrollable frame
+    u_db_button1=CTkButton(u_db_sframe,width=200,height=250,fg_color="#D9D9D9",hover=0,border_width=3,border_color="#ED8937")
+    u_db_button1.grid(row=0,column=0,padx=20,pady=20)
+    u_db_btn4=CTkButton(u_db_button1,text="EDIT",font=("Inter",18,"bold"),text_color="white",fg_color="#C8302B",corner_radius=10,hover_color="#ED8937")
+    u_db_btn4.place(rely=0.8,relx=0.15,relheight=0.15)
+
+#image and label for button 1
+    u_db_img3=Image.open("pictures/pngegg (2) 1Bargar.png")
+    u_db_img3=u_db_img3.resize((230,210))
+    photo_u_db_img3tk=ImageTk.PhotoImage(u_db_img3)
+    u_db_img3_lbl = tk.Label(u_db_button1, image=photo_u_db_img3tk,bg="#D9D9D9")
+    u_db_img3_lbl.place(x=15, y=5, w=230, h=210)
+    u_db_label1=tk.Label(u_db_button1,text="Name: Chicken Burger\n  Price: Rs.350",font=("Inter",15),bg="#D9D9D9")
+    u_db_label1.place(relx=0.1,rely=0.6)
+
+#button 2 in scrollable frame
+    u_db_button2=CTkButton(u_db_sframe,width=200,height=250,fg_color="#D9D9D9",hover=0,border_width=3,border_color="#ED8937")
+    u_db_button2.grid(row=0,column=2,padx=20,pady=20)
+    u_db_btn5=CTkButton(u_db_button2,text="EDIT",font=("Inter",20,"bold"),text_color="white",fg_color="#C8302B",corner_radius=10,hover_color="#ED8937")
+    u_db_btn5.place(rely=0.8,relx=0.15,relheight=0.15)
+
+#image and label for button 2
+    u_db_img4=Image.open("pictures/pngegg (6) 1pizza.png")
+    u_db_img4=u_db_img4.resize((220,200))
+    photo_u_db_img4tk=ImageTk.PhotoImage(u_db_img4)
+    u_db_img4_lbl = tk.Label(u_db_button2, image=photo_u_db_img4tk,bg="#D9D9D9")
+    u_db_img4_lbl.place(x=15, y=5, w=220, h=200)
+    u_db_label2=tk.Label(u_db_button2,text="Name: Chicken Pizza\n  Price: Rs.510",font=("Inter",15),bg="#D9D9D9")
+    u_db_label2.place(relx=0.1,rely=0.6)
+
+#button 3 in scrollable frame
+    u_db_button3=CTkButton(u_db_sframe,width=200,height=250,fg_color="#D9D9D9",hover=0,border_width=3,border_color="#ED8937")
+    u_db_button3.grid(row=0,column=1,padx=0,pady=0)
+    u_db_btn6=CTkButton(u_db_button3,text="EDIT",font=("Inter",20,"bold"),text_color="white",fg_color="#C8302B",corner_radius=10,hover_color="#ED8937")
+    u_db_btn6.place(rely=0.8,relx=0.15,relheight=0.15)
+
+#image and label for button 3
+    u_db_img5=Image.open("pictures/pngegg (8) 1cooooofe.png")
+    u_db_img5=u_db_img5.resize((210,190))
+    photo_u_db_img5tk=ImageTk.PhotoImage(u_db_img5)
+    u_db_img5_lbl = tk.Label(u_db_button3, image=photo_u_db_img5tk,bg="#D9D9D9")
+    u_db_img5_lbl.place(x=10, y=5, w=210, h=190)
+    u_db_label3=tk.Label(u_db_button3,text="Name: Espresso\n   Price: Rs.210",font=("Inter",15),bg="#D9D9D9")
+    u_db_label3.place(relx=0.17,rely=0.6)
+
+#button 4 in scrollable frame
+    u_db_button4=CTkButton(u_db_sframe,width=200,height=250,fg_color="#D9D9D9",hover=0,border_width=3,border_color="#ED8937")
+    u_db_button4.grid(row=0,column=3,pady=0)
+    u_db_btn7=CTkButton(u_db_button4,text="EDIT",font=("Inter",20,"bold"),text_color="white",fg_color="#C8302B",corner_radius=10,hover_color="#ED8937")
+    u_db_btn7.place(rely=0.8,relx=0.15,relheight=0.15)
+
+#image and label for button 4
+    u_db_img6=Image.open("pictures/pngegg (4) 1pepsii.png")
+    u_db_img6=u_db_img6.resize((160,160))
+    photo_u_db_img6tk=ImageTk.PhotoImage(u_db_img6)
+    u_db_img6_lbl = tk.Label(u_db_button4, image=photo_u_db_img6tk,bg="#D9D9D9")
+    u_db_img6_lbl.place(x=45, y=15, w=160, h=160)
+    u_db_label4=tk.Label(u_db_button4,text="   Name:Pepsi\n   Price: Rs.70",font=("Inter",15),bg="#D9D9D9")
+    u_db_label4.place(relx=0.16,rely=0.6)
+
+#button 5 in scrollable frame
+    u_db_button5=CTkButton(u_db_sframe,width=200,height=250,fg_color="#D9D9D9",hover=0,border_width=3,border_color="#ED8937")
+    u_db_button5.grid(row=1,column=0,padx=20,pady=0)
+    u_db_btn8=CTkButton(u_db_button5,text="EDIT",font=("Inter",20,"bold"),text_color="white",fg_color="#C8302B",corner_radius=10,hover_color="#ED8937")
+    u_db_btn8.place(rely=0.8,relx=0.15,relheight=0.15)
+
+#image and label for button 5
+    u_db_img7=Image.open("pictures/pngegg (7) 1fried_chicken.png")
+    u_db_img7=u_db_img7.resize((210,190))
+    photo_u_db_img7tk=ImageTk.PhotoImage(u_db_img7)
+    u_db_img7_lbl = tk.Label(u_db_button5, image=photo_u_db_img7tk,bg="#D9D9D9")
+    u_db_img7_lbl.place(x=25, y=4, w=210, h=190)
+    u_db_label5=tk.Label(u_db_button5,text="Name: Drumstick\n   Price: Rs.110",font=("Inter",15),bg="#D9D9D9")
+    u_db_label5.place(relx=0.17,rely=0.6)
+
+#button 6 in scrollable frame
+    u_db_button6=CTkButton(u_db_sframe,width=200,height=250,fg_color="#D9D9D9",hover=0,border_width=3,border_color="#ED8937")
+    u_db_button6.grid(row=1,column=1,padx=0,pady=0)
+    u_db_btn9=CTkButton(u_db_button6,text="EDIT",font=("Inter",20,"bold"),text_color="white",fg_color="#C8302B",corner_radius=10,hover_color="#ED8937")
+    u_db_btn9.place(rely=0.8,relx=0.15,relheight=0.15)
+
+#image and label for button 6
+    u_db_img8=Image.open("pictures/pngegg (12) 1coffee_shake.png")
+    u_db_img8=u_db_img8.resize((190,170))
+    photo_u_db_img8tk=ImageTk.PhotoImage(u_db_img8)
+    u_db_img8_lbl = tk.Label(u_db_button6, image=photo_u_db_img8tk,bg="#D9D9D9")
+    u_db_img8_lbl.place(x=25, y=12, w=190, h=170)
+    u_db_label6=tk.Label(u_db_button6,text="Name: Cold Coffee\n   Price: Rs.280",font=("Inter",15),bg="#D9D9D9")
+    u_db_label6.place(relx=0.15,rely=0.6)
+
+#button 7 in scrollable frame
+    u_db_button7=CTkButton(u_db_sframe,width=200,height=250,fg_color="#D9D9D9",hover=0,border_width=3,border_color="#ED8937")
+    u_db_button7.grid(row=1,column=2,padx=0,pady=0)
+    u_db_btn10=CTkButton(u_db_button7,text="EDIT",font=("Inter",20,"bold"),text_color="white",fg_color="#C8302B",corner_radius=10,hover_color="#ED8937")
+    u_db_btn10.place(rely=0.8,relx=0.15,relheight=0.15)
+
+#image and label for button 7
+    u_db_img9=Image.open("pictures/pngegg (3) 1french_fries.png")
+    u_db_img9=u_db_img9.resize((210,200))
+    photo_u_db_img9tk=ImageTk.PhotoImage(u_db_img9)
+    u_db_img9_lbl = tk.Label(u_db_button7, image=photo_u_db_img9tk,bg="#D9D9D9")
+    u_db_img9_lbl.place(x=15, y=5, w=210, h=200)
+    u_db_label7=tk.Label(u_db_button7,text="Name: French Fries\n   Price: Rs.280",font=("Inter",15),bg="#D9D9D9")
+    u_db_label7.place(relx=0.15,rely=0.6)
+
+#button 8 in scrollable frame
+    u_db_button8=CTkButton(u_db_sframe,width=200,height=250,fg_color="#D9D9D9",hover=0,border_width=3,border_color="#ED8937")
+    u_db_button8.grid(row=1,column=3,padx=0,pady=0)
+    u_db_btn11=CTkButton(u_db_button8,text="EDIT",font=("Inter",20,"bold"),text_color="white",fg_color="#C8302B",corner_radius=10,hover_color="#ED8937")
+    u_db_btn11.place(rely=0.8,relx=0.15,relheight=0.15)
+
+#image and label for button 8
+    u_db_img10=Image.open("pictures/pngegg (14) 1coke.png")
+    u_db_img10=u_db_img10.resize((160,160))
+    photo_u_db_img10tk=ImageTk.PhotoImage(u_db_img10)
+    u_db_img10_lbl = tk.Label(u_db_button8, image=photo_u_db_img10tk,bg="#D9D9D9")
+    u_db_img10_lbl.place(x=40, y=17, w=160, h=160)
+    u_db_label8=tk.Label(u_db_button8,text="Name: CocaCola\n   Price: Rs.70",font=("Inter",15),bg="#D9D9D9")
+    u_db_label8.place(relx=0.18,rely=0.6)
+
+#button 9 in scrollable frame
+    u_db_button9=CTkButton(u_db_sframe,width=200,height=250,fg_color="#D9D9D9",hover=0,border_width=3,border_color="#ED8937")
+    u_db_button9.grid(row=2,column=0,padx=20,pady=20)
+    u_db_btn12=CTkButton(u_db_button9,text="EDIT",font=("Inter",20,"bold"),text_color="white",fg_color="#C8302B",corner_radius=10,hover_color="#ED8937")
+    u_db_btn12.place(rely=0.8,relx=0.15,relheight=0.15)
+
+#image and label for button 9
+    u_db_img11=Image.open("pictures/pngegg (13) 1oreo_shake.png")
+    u_db_img11=u_db_img11.resize((180,160))
+    photo_u_db_img11tk=ImageTk.PhotoImage(u_db_img11)
+    u_db_img11_lbl = tk.Label(u_db_button9, image=photo_u_db_img11tk,bg="#D9D9D9")
+    u_db_img11_lbl.place(x=40, y=15, w=180, h=160)
+    u_db_label9=tk.Label(u_db_button9,text="Name: Oreo Shake\n   Price: Rs.450",font=("Inter",15),bg="#D9D9D9")
+    u_db_label9.place(relx=0.15,rely=0.6)
+
+#button 10 in scrollable frame
+    u_db_button10=CTkButton(u_db_sframe,width=200,height=250,fg_color="#D9D9D9",hover=0,border_width=3,border_color="#ED8937")
+    u_db_button10.grid(row=2,column=1,padx=0,pady=20)
+    u_db_btn13=CTkButton(u_db_button10,text="EDIT",font=("Inter",20,"bold"),text_color="white",fg_color="#C8302B",corner_radius=10,hover_color="#ED8937")
+    u_db_btn13.place(rely=0.8,relx=0.15,relheight=0.15)
+
+#image and label for button 10
+    u_db_img12=Image.open("pictures/pngegg (11) 1cofee.png")
+    u_db_img12=u_db_img12.resize((200,200))
+    photo_u_db_img12tk=ImageTk.PhotoImage(u_db_img12)
+    u_db_img12_lbl = tk.Label(u_db_button10, image=photo_u_db_img12tk,bg="#D9D9D9")
+    u_db_img12_lbl.place(x=25, y=5, w=200, h=200)
+    u_db_label10=tk.Label(u_db_button10,text="Name: Cappuccino\n   Price: Rs.200",font=("Inter",15),bg="#D9D9D9")
+    u_db_label10.place(relx=0.15,rely=0.6)
+    
+#button 11 in scrollable frame
+    u_db_button11=CTkButton(u_db_sframe,width=200,height=250,fg_color="#D9D9D9",hover=0,border_width=3,border_color="#ED8937")
+    u_db_button11.grid(row=2,column=2,padx=20,pady=20)
+    u_db_btn14=CTkButton(u_db_button11,text="EDIT",font=("Inter",20,"bold"),text_color="white",fg_color="#C8302B",corner_radius=10,hover_color="#ED8937")
+    u_db_btn14.place(rely=0.8,relx=0.15,relheight=0.15)
+
+#image and label for button 11
+    u_db_img15=Image.open("pictures/pngegg (2) 2momo.png")
+    u_db_img15=u_db_img15.resize((190,190))
+    photo_u_db_img15tk=ImageTk.PhotoImage(u_db_img15)
+    u_db_img15_lbl = tk.Label(u_db_button11, image=photo_u_db_img15tk,bg="#D9D9D9")
+    u_db_img15_lbl.place(x=30, y=8, w=190, h=190)
+    u_db_label11=tk.Label(u_db_button11,text="Name: Chicken momo\n   Price: Rs.200",font=("Inter",15),bg="#D9D9D9")
+    u_db_label11.place(relx=0.1,rely=0.6)
+
+#button 12 in scrollable frame
+    u_db_button12=CTkButton(u_db_sframe,width=200,height=250,fg_color="#D9D9D9",hover=0,border_width=3,border_color="#ED8937")
+    u_db_button12.grid(row=2,column=3,padx=0,pady=20)
+    u_db_btn15=CTkButton(u_db_button12,text="EDIT",font=("Inter",20,"bold"),text_color="white",fg_color="#C8302B",corner_radius=10,hover_color="#ED8937")
+    u_db_btn15.place(rely=0.8,relx=0.15,relheight=0.15)
+    u_db_label12=tk.Label(u_db_button12,text="    Name: Sprite\n   Price: Rs.70",font=("Inter",15),bg="#D9D9D9")
+    u_db_label12.place(relx=0.15,rely=0.6)
+
+#image and label for button 12
+    u_db_img13=Image.open("pictures/pngegg (15) 1sprite.png")
+    u_db_img13=u_db_img13.resize((140,160))
+    photo_u_db_img13tk=ImageTk.PhotoImage(u_db_img13)
+    u_db_img13_lbl = tk.Label(u_db_button12, image=photo_u_db_img13tk,bg="#D9D9D9")
+    u_db_img13_lbl.place(x=55, y=20, w=140, h=160)
+
+#button 13 in scrollable frame
+    u_db_button13=CTkButton(u_db_sframe,width=200,height=250,fg_color="#D9D9D9",hover=0,border_width=3,border_color="#ED8937")
+    u_db_button13.grid(row=3,column=0,padx=20,pady=0)
+    u_db_btn16=CTkButton(u_db_button13,text="EDIT",font=("Inter",20,"bold"),text_color="white",fg_color="#C8302B",corner_radius=10,hover_color="#ED8937")
+    u_db_btn16.place(rely=0.8,relx=0.15,relheight=0.15)
+
+#image and label for button 13
+    u_db_img14=Image.open("pictures/pngegg (16) 1fanta.png")
+    u_db_img14=u_db_img14.resize((160,160))
+    photo_u_db_img14tk=ImageTk.PhotoImage(u_db_img14)
+    u_db_img14_lbl = tk.Label(u_db_button13, image=photo_u_db_img14tk,bg="#D9D9D9")
+    u_db_img14_lbl.place(x=45, y=15, w=160, h=160)
+    u_db_label13=tk.Label(u_db_button13,text="   Name: Fanta\n   Price: Rs.70",font=("Inter",15),bg="#D9D9D9")
+    u_db_label13.place(relx=0.15,rely=0.6)
+
+#button 14 in scrollable frame
+    u_db_button14=CTkButton(u_db_sframe,width=200,height=250,fg_color="#D9D9D9",hover=0,border_width=3,border_color="#ED8937")
+    u_db_button14.grid(row=3,column=1,padx=0,pady=0)
+    u_db_btn17=CTkButton(u_db_button14,text="EDIT",font=("Inter",20,"bold"),text_color="white",fg_color="#C8302B",corner_radius=10,hover_color="#ED8937")
+    u_db_btn17.place(rely=0.8,relx=0.15,relheight=0.15)
+
+#image and label for button 14
+    u_db_img16=Image.open("pictures/pngegg (3) 2chowmein.png")
+    u_db_img16=u_db_img16.resize((200,200))
+    photo_u_db_img16tk=ImageTk.PhotoImage(u_db_img16)
+    u_db_img16_lbl = tk.Label(u_db_button14, image=photo_u_db_img16tk,bg="#D9D9D9")
+    u_db_img16_lbl.place(x=25, y=5, w=200, h=200)
+    u_db_label14=tk.Label(u_db_button14,text="Name: Chicken Chowmein\n   Price: Rs.250",font=("Inter",15),bg="#D9D9D9")
+    u_db_label14.place(relx=0.04,rely=0.6)
+
+#button 15 in scrollable frame
+    u_db_button15=CTkButton(u_db_sframe,width=200,height=250,fg_color="#D9D9D9",hover=0,border_width=3,border_color="#ED8937")
+    u_db_button15.grid(row=3,column=2,padx=20,pady=0)
+    u_db_btn18=CTkButton(u_db_button15,text="EDIT",font=("Inter",20,"bold"),text_color="white",fg_color="#C8302B",corner_radius=10,hover_color="#ED8937")
+    u_db_btn18.place(rely=0.8,relx=0.15,relheight=0.15)
+#image and label for button 15 
+    u_db_img17=Image.open("pictures/pngegg (4) 2Biryani.png")
+    u_db_img17=u_db_img17.resize((235,180))
+    photo_u_db_img17tk=ImageTk.PhotoImage(u_db_img17)
+    u_db_img17_lbl = tk.Label(u_db_button15, image=photo_u_db_img17tk,bg="#D9D9D9")
+    u_db_img17_lbl.place(x=10, y=5, w=235, h=180)
+    u_db_label15=tk.Label(u_db_button15,text="Name: Chicken Biryani\n   Price: Rs.250",font=("Inter",15),bg="#D9D9D9")
+    u_db_label15.place(relx=0.1,rely=0.6)
+
     pass
+
+
+
+
 
 
 def customers_frame_ad():
     #this function is made to make frame in dashboard swap with the frame in customers page and make other buttons hover as usual
+    global s_f_frame,admin_db_customer_frame
+    #dashboard frame
+
+    admin_db_customer_frame.place(relx=0.302,rely=0.12,relwidth=0.7,relheight=0.9)
+
+    s_f_frame.place_forget()
+    admin_db_frame3.place_forget()
 
     #this is to configure dashboard label to customers
-
     a_db_btn9.configure(text="             Customers")
 
 #making image global
@@ -167,9 +418,7 @@ def customers_frame_ad():
     admin_db_btn3_lbl=CTkLabel(admin_db_btn3,image=a_db_img2ctk,text="")
     admin_db_btn3_lbl.place(relx=0.3,rely=0.1)
 
-    #Frame
-    admin_db_cframe3=tk.Frame(main_frame6,bg="White")
-    admin_db_cframe3.place(relx=0.302,rely=0.12,relwidth=0.7,relheight=0.9)
+    #Customer Frame
 
     #bindings so that that buttons act as intended
     admin_db_btn2.bind("<Enter>", on_hover)

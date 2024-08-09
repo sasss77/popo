@@ -48,14 +48,30 @@ def drinks():
     u_db_button12.grid(row=2,column=0,padx=10,pady=10)
 
 
-    def search_check():
-        searched_item_value=u_db_entry.get()
-        searched_item_value.lower()
+def search_check():
+    searched_item_value=u_db_entry.get()
+    searched_item_value.lower()
 
-        for i in items_lst: 
-            i.lower()
-        if searched_item_value in items_lst:
-            pass
+    for i in items_lst: 
+        i.lower()
+    if searched_item_value in items_lst:
+        if searched_item_value==items_lst[1]:
+            u_db_button2.place_forget()
+            u_db_button3.place_forget()
+            u_db_button4.place_forget()
+            u_db_button5.place_forget()
+            u_db_button6.place_forget()
+            u_db_button7.place_forget()
+            u_db_button8.place_forget()
+            u_db_button9.place_forget()
+            u_db_button10.place_forget()
+            u_db_button11.place_forget()
+            u_db_button12.place_forget()
+            u_db_button13.place_forget()
+            u_db_button14.place_forget()
+            u_db_button15.place_forget()
+
+    pass
 
 
 
@@ -205,7 +221,7 @@ u_db_menubtn.place(relwidth=0.08,relheight=0.45,relx=0.3,rely=0.3)
 
 
 #search button
-u_db_btn1=CTkButton(u_db_frame1,text="       Search",text_color="red",fg_color="white",border_width=1,border_color="black",image=u_db_img2,compound=RIGHT,corner_radius=8,font=("Regular",13),hover_color="#D9D9D9")
+u_db_btn1=CTkButton(u_db_frame1,text="       Search",text_color="red",fg_color="white",border_width=1,border_color="black",image=u_db_img2,compound=RIGHT,corner_radius=8,font=("Regular",13),hover_color="#D9D9D9",command=search_check)
 u_db_btn1.place(relwidth=0.07,relheight=0.45,relx=0.74,rely=0.3)
 
 #Item name entrybox

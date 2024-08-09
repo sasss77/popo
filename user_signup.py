@@ -63,6 +63,8 @@ def newwin():
     which is by the side of forgot password .
     """
     global win2
+    sec_ques_main_frame=CTkFrame(root,width=1252,height=626)
+    sec_ques_main_frame.place(x=0,y=0)
 
     #the forgot password window
     win2=tk.Toplevel()
@@ -122,6 +124,7 @@ def newwin():
 
 def message():
     tk.messagebox.showinfo("Security question message","Security question must be answered. In case if you forgot your password, then this will help you reset your password .")
+
 
 
 
